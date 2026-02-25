@@ -25,7 +25,7 @@ Modelo SEPA da UNIFACS em LaTeX, baseado no **abntex2** para configuracoes basic
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
