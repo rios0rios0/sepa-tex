@@ -18,6 +18,8 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ### Added
 
+- added `CLAUDE.md` with build commands, project structure, and repo conventions for Claude Code sessions
+
 ### Changed
 
 ### Removed
