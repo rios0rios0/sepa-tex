@@ -103,7 +103,7 @@ All `document.tex` files use a configuration block similar to:
 
 ## CI/CD Pipeline
 
-There is no CI/CD pipeline configured in this repository. All validation is performed locally before submitting a pull request.
+A `release.yaml` workflow runs on push to `main` and delegates to a shared pipeline (`rios0rios0/pipelines`) to create GitHub releases. There is no build or test CI — all validation is performed locally before submitting a pull request.
 
 ## Development Workflow
 
