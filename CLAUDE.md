@@ -25,11 +25,11 @@ Each top-level directory is a paper. Inside, `article/` holds the article varian
 
 Key files per paper:
 
-- `document.tex` — entry point, contains all content
-- `abntex2.tex` — package imports and abntex2 config, loaded via `\input{abntex2}`
-- `references.bib` — BibTeX bibliography
+- `document.tex` — self-contained entry point: declares its own `\documentclass{abntex2}`, inlines every `\usepackage` and config, and pulls the bibliography via `\bibliography{references}`. There is no shared config include.
+- `references.bib` — BibTeX bibliography (cited as `references`, without extension)
+- `abntex2.tex`, `abntex2cite.tex`, `abntex2cite-alf.tex` — bundled copies of the upstream abnTeX2 manual/example sources (each is its own `ltxdoc` document). They are **not** loaded by `document.tex`; keep them for reference only.
 
-The `project/` variant may include local `abntex2.cls` and `.sty` overrides.
+The `project/` variant additionally bundles the abnTeX2 class and style sources locally (`abntex2.cls`, `abntex2cite.sty`, `.bst` files) so it compiles even where those are not installed in the TeX distribution.
 
 ## Conventions
 
