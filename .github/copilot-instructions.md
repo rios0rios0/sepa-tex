@@ -19,8 +19,8 @@ sepa-tex/
 │
 ├── MAIS - Multi Agent Intelligent System/
 │   └── article/
-│       ├── document.tex               # Main content entry point
-│       ├── abntex2.tex                # abntex2 package configuration
+│       ├── document.tex               # Self-contained content + config entry point
+│       ├── abntex2.tex                # Bundled upstream abnTeX2 manual (not compiled)
 │       ├── abntex2cite.tex            # Citation examples (numeric)
 │       ├── abntex2cite-alf.tex        # Citation examples (alphabetical)
 │       └── references.bib             # BibTeX bibliography database
@@ -40,19 +40,23 @@ sepa-tex/
     │   ├── abntex2cite.tex
     │   ├── abntex2cite-alf.tex
     │   └── references.bib
+    │   ├── images/                    # Figures embedded by document.tex
+    │   └── listings/                  # C source listings + a local style.sty
     └── project/
         ├── document.tex
-        ├── abntex2.cls                # Custom abntex2 class extension
-        ├── abntex2cite.sty            # Citation style overrides
-        ├── abntex2cite-alf.tex
-        └── references.bib
+        ├── references.bib
+        ├── abntex2.cls                # Local copy of the abnTeX2 class
+        ├── abntex2cite.sty            # Local citation style sources
+        ├── abntex2-{alf,num}.bst      # Local BibTeX styles
+        └── abntex2cite-alf.tex
 ```
 
-Each paper directory follows the same modular structure:
-- **`document.tex`** — Main content file; the entry point for compilation
-- **`abntex2.tex`** — Package imports and abntex2 configuration (pulled in via `\input`)
-- **`abntex2cite.tex`** / **`abntex2cite-alf.tex`** — Citation format examples
-- **`references.bib`** — BibTeX bibliography database for the paper
+Each paper directory follows the same layout:
+- **`document.tex`** — Self-contained entry point: declares its own `\documentclass{abntex2}`, inlines every `\usepackage` and configuration, and pulls the bibliography via `\bibliography{references}`. No shared config include.
+- **`references.bib`** — BibTeX bibliography for the paper (cited as `references`, no extension).
+- **`abntex2.tex`** / **`abntex2cite.tex`** / **`abntex2cite-alf.tex`** — Bundled copies of the upstream abnTeX2 manual/example sources (each is its own `ltxdoc` document). **Not** loaded by `document.tex` — kept for reference only.
+
+The `Execução Especulativa…/article/` paper also embeds figures from `images/` and C listings from `listings/`. Its `project/` variant bundles the abnTeX2 class and style sources locally so it compiles where those are not installed.
 
 ## Technology Stack
 
@@ -80,10 +84,9 @@ After compilation the generated PDF will be `document.pdf` in the same directory
 
 ## Architecture and Design Patterns
 
-- **Separation of concerns**: ABNT configuration (`abntex2.tex`) is kept separate from paper content (`document.tex`) and bibliography (`references.bib`).
-- **Input-based composition**: Configuration files are loaded with `\input{abntex2}` rather than inlined, keeping `document.tex` focused on content.
-- **Custom class extension**: The `project/` sub-type may include a local `abntex2.cls` and `.sty` overrides to adapt the base class to project-report formatting requirements.
-- **Modular bibliography**: Each paper maintains its own `references.bib` to avoid cross-contamination between papers.
+- **Self-contained documents**: Each `document.tex` carries its own `\documentclass{abntex2}`, all `\usepackage` directives, and configuration inline — there is no shared config include. The sibling `abntex2*.tex` files are bundled upstream manuals, not part of the build.
+- **Local class bundling**: The `project/` variant ships local copies of the abnTeX2 class and style sources (`abntex2.cls`, `abntex2cite.sty`, `.bst`) so it compiles standalone, even without those installed in the TeX distribution.
+- **Modular bibliography**: Each paper keeps its own `references.bib` to avoid cross-contamination between papers.
 
 ## Document Class Options
 
