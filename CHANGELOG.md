@@ -16,6 +16,8 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-06-01
+
 ### Changed
 
 - corrected `CLAUDE.md` and `.github/copilot-instructions.md` to drop the inaccurate `\input{abntex2}` composition claim; each `document.tex` is self-contained and the bundled `abntex2*.tex` files are upstream manuals, not part of the build
