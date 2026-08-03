@@ -16,6 +16,10 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+### Changed
+
+- corrected `.github/copilot-instructions.md` citation-style note: alphabetical citations require the explicit `[alf]` option (as every paper uses), and numeric is the `abntex2cite` default
+
 ## [1.1.2] - 2026-06-03
 
 ### Changed
