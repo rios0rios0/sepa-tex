@@ -157,8 +157,8 @@ Then cite it in the document with `\cite{key2024}` and recompile.
 
 ### Switching citation style
 
-- Numeric citations: `\usepackage[num]{abntex2cite}`
-- Alphabetical citations: `\usepackage{abntex2cite}` (default)
+- Alphabetical (author-date) citations: `\usepackage[alf]{abntex2cite}` — used by every paper here, alongside the `bibjustif` and `abnt-emphasize=bf` options.
+- Numeric citations: `\usepackage[num]{abntex2cite}` (the package default when no style option is given).
 
 ## Troubleshooting
 
