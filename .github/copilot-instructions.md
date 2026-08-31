@@ -106,7 +106,13 @@ All `document.tex` files use a configuration block similar to:
 
 ## CI/CD Pipeline
 
-A `release.yaml` workflow runs on push to `main` and delegates to a shared pipeline (`rios0rios0/pipelines`) to create GitHub releases. There is no build or test CI — all validation is performed locally before submitting a pull request.
+Three GitHub Actions workflows delegate to shared pipelines in `rios0rios0/pipelines`:
+
+- `release.yaml` — runs on push to `main` to create GitHub releases.
+- `claude-review.yaml` — runs on pull requests to post an automated Claude code review.
+- `claude-mention.yaml` — responds to `@claude` mentions in issues and pull-request comments.
+
+There is no build or test CI — all LaTeX validation is performed locally before submitting a pull request.
 
 ## Development Workflow
 

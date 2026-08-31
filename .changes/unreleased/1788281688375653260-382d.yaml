@@ -1,0 +1,3 @@
+kind: 'Changed'
+body: 'refreshed `.github/copilot-instructions.md` to document the `claude-review.yaml` and `claude-mention.yaml` workflows alongside `release.yaml` in the CI/CD section'
+time: '2026-09-01T16:54:48.375580495Z'
