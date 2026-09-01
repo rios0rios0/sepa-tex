@@ -22,6 +22,12 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-09-01
+
+### Changed
+
+- refreshed `.github/copilot-instructions.md` to document the `claude-review.yaml` and `claude-mention.yaml` workflows alongside `release.yaml` in the CI/CD section
+
 ## [1.3.0] - 2026-08-28
 
 ### Added
