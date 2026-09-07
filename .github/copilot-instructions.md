@@ -106,8 +106,9 @@ All `document.tex` files use a configuration block similar to:
 
 ## CI/CD Pipeline
 
-Three GitHub Actions workflows delegate to shared pipelines in `rios0rios0/pipelines`:
+Four GitHub Actions workflows delegate to shared pipelines in `rios0rios0/pipelines`:
 
+- `checks.yaml` — runs on pull requests targeting `main`; the shared rebase and changelog gate that fails a PR lacking a `.changes/unreleased/` fragment or carrying a merge commit from `main`.
 - `release.yaml` — runs on push to `main` to create GitHub releases.
 - `claude-review.yaml` — runs on pull requests to post an automated Claude code review.
 - `claude-mention.yaml` — responds to `@claude` mentions in issues and pull-request comments.
