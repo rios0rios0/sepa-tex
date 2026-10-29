@@ -11,8 +11,8 @@ Modelo SEPA da UNIFACS em LaTeX, baseado no **abntex2** para configuracoes basic
 ## Detalhes do Projeto
 
 - **abntex2** utilizada como base para configuracoes basicas
-  - [abntex2](http://www.miktex.org/) - pagina do projeto
-  - [abntex/abntex2](http://www.tug.org/texlive/) - repositorio do projeto
+  - [abntex2](https://www.abntex.net.br/) - pagina do projeto
+  - [abntex/abntex2](https://github.com/abntex/abntex2) - repositorio do projeto
 
 ## Installation
 

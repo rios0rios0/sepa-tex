@@ -1,0 +1,3 @@
+kind: 'Changed'
+body: 'refreshed `AGENTS.md`, `.github/copilot-instructions.md`, `.github/skills/code-review/SKILL.md`, `README.md`, and `CONTRIBUTING.md` to state the ABNT NBR 15287:2011 norm of the `project/` variant, the `alf` citation style every paper uses, the actual indentation and branch/commit conventions, the current repository tree, the abnTeX2 project links, and the flat Git Flow wiki link'
+time: '2026-10-29T01:01:08.421300048Z'

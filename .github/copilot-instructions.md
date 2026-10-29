@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**SEPA TeX** is a collection of LaTeX document templates for academic papers submitted to SEPA (Seminário Estudantil de Produção Acadêmica) at UNIFACS university. All templates conform to **ABNT NBR 6022:2018** standards and are built on top of the [`abntex2`](https://github.com/abntex/abntex2) LaTeX class.
+**SEPA TeX** is a collection of LaTeX document templates for academic papers submitted to SEPA (Seminário Estudantil de Produção Acadêmica) at UNIFACS university. The article templates conform to **ABNT NBR 6022:2018** and the `project/` research-project template to **ABNT NBR 15287:2011**; all are built on top of the [`abntex2`](https://github.com/abntex/abntex2) LaTeX class.
 
 The repository contains multiple completed academic papers as reference implementations, each demonstrating the correct use of the template.
 
@@ -11,7 +11,12 @@ The repository contains multiple completed academic papers as reference implemen
 ```
 sepa-tex/
 ├── .github/
-│   └── copilot-instructions.md        # This file
+│   ├── copilot-instructions.md        # This file
+│   ├── skills/code-review/SKILL.md    # Code-review skill
+│   └── workflows/                     # CI workflows (see below)
+├── .changes/unreleased/               # chlog changelog fragments
+├── AGENTS.md                          # Shared agent instructions (CLAUDE.md imports it)
+├── CHANGELOG.md                       # Generated from .changes/ by chlog
 ├── CONTRIBUTING.md                    # Contribution guidelines
 ├── README.md                          # Project overview
 ├── LICENSE                            # License information
@@ -39,15 +44,19 @@ sepa-tex/
     │   ├── abntex2.tex
     │   ├── abntex2cite.tex
     │   ├── abntex2cite-alf.tex
-    │   └── references.bib
-    │   ├── images/                    # Figures embedded by document.tex
-    │   └── listings/                  # C source listings + a local style.sty
+    │   ├── references.bib
+    │   ├── images/                    # Image assets (referenced only by a commented-out line)
+    │   └── listings/                  # C listings + listings/c/style.sty, loaded by document.tex
     └── project/
         ├── document.tex
         ├── references.bib
+        ├── brasao.jpg                 # Crest image included by document.tex
         ├── abntex2.cls                # Local copy of the abnTeX2 class
         ├── abntex2cite.sty            # Local citation style sources
+        ├── abntex2abrev.sty
         ├── abntex2-{alf,num}.bst      # Local BibTeX styles
+        ├── abntex2.tex                # Bundled upstream manuals (not compiled)
+        ├── abntex2cite.tex
         └── abntex2cite-alf.tex
 ```
 
@@ -56,7 +65,7 @@ Each paper directory follows the same layout:
 - **`references.bib`** — BibTeX bibliography for the paper (cited as `references`, no extension).
 - **`abntex2.tex`** / **`abntex2cite.tex`** / **`abntex2cite-alf.tex`** — Bundled copies of the upstream abnTeX2 manual/example sources (each is its own `ltxdoc` document). **Not** loaded by `document.tex` — kept for reference only.
 
-The `Execução Especulativa…/article/` paper also embeds figures from `images/` and C listings from `listings/`. Its `project/` variant bundles the abnTeX2 class and style sources locally so it compiles where those are not installed.
+The `Execução Especulativa…/article/` paper also loads `listings/c/style.sty` and inputs C listings from `listings/` with `\lstinputlisting`; its `images/` files are referenced only by a commented-out line. Its `project/` variant bundles the abnTeX2 class and style sources locally so it compiles where those are not installed.
 
 ## Technology Stack
 
@@ -123,7 +132,7 @@ There is no build or test CI — all LaTeX validation is performed locally befor
 4. Compile the document using the four-step build sequence above.
 5. Review the generated `document.pdf` for correct formatting and citation rendering.
 6. If bibliography entries were modified, update `references.bib` and recompile.
-7. Commit following the [Git Flow conventions](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow).
+7. Commit following the [Git Flow conventions](https://github.com/rios0rios0/guide/wiki/Git-Flow): `type(scope): message` in simple past tense.
 8. Open a pull request targeting `main`.
 
 ## Coding Conventions
@@ -132,7 +141,7 @@ There is no build or test CI — all LaTeX validation is performed locally befor
 - **Font**: Times New Roman family (`\usepackage{times}`).
 - **Citation style**: ABNT alphabetical or numeric via `abntex2cite`; choose one per paper and stay consistent.
 - **Comments**: Use `%` inline comments sparingly; prefer self-documenting section/command names.
-- **Indentation**: Two spaces for nested LaTeX environments is the convention used throughout existing files.
+- **Indentation**: Match the file you edit. The `article/` documents indent nested environments with four spaces.
 - **Branch naming**: Follow the external [Development Guide](https://github.com/rios0rios0/guide/wiki) (e.g., `feat/`, `fix/`, `chore/` prefixes).
 
 ## Common Tasks

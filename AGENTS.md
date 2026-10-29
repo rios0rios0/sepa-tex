@@ -1,10 +1,10 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents (Claude Code, Codex, Cursor, GitHub Copilot) when working with code in this repository.
 
 ## Project
 
-SEPA TeX — LaTeX templates for UNIFACS SEPA academic papers. All documents conform to ABNT NBR 6022:2018 and use the `abntex2` document class.
+SEPA TeX — LaTeX templates for UNIFACS SEPA academic papers, built on the `abntex2` document class. The `article/` variants follow ABNT NBR 6022:2018; the `project/` variant (research project) follows ABNT NBR 15287:2011.
 
 ## Build
 
@@ -21,7 +21,7 @@ Three `pdflatex` passes are required: first generates `.aux`, second resolves ci
 
 ## Structure
 
-Each top-level directory is a paper. Inside, `article/` holds the article variant and `project/` (when present) holds a project-report variant.
+Each top-level directory is a paper. Inside, `article/` holds the article variant and `project/` (when present) holds a research-project variant.
 
 Key files per paper:
 
@@ -33,12 +33,11 @@ The `project/` variant additionally bundles the abnTeX2 class and style sources 
 
 ## Conventions
 
-- All files are UTF-8.
+- Keep UTF-8 (`\usepackage[utf8]{inputenc}`) and the Times font (`\usepackage{times}`): changing either reflows the whole document.
 - Primary language is Portuguese; English is secondary via `babel`.
-- Font: Times New Roman (`\usepackage{times}`).
-- Citation style: ABNT alphabetical or numeric via `abntex2cite`.
-- Indentation: two spaces for nested LaTeX environments.
-- Commit prefixes follow [Git Flow conventions](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow): `feat/`, `fix/`, `chore/`.
+- Citations: every paper loads `abntex2cite` with `alf` (author-date). Keep one style per paper; mixing `alf` and `num` in one document produces inconsistent references.
+- Indentation: match the file you edit. The `article/` documents indent nested environments with four spaces.
+- Follow [Git Flow conventions](https://github.com/rios0rios0/guide/wiki/Git-Flow): branch names use `feat/`, `fix/`, `chore/` prefixes; commit subjects are `type(scope): message` in simple past tense.
 
 <!-- chlog:start -->
 ## Changelog (chlog) — MANDATORY
