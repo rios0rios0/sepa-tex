@@ -24,5 +24,5 @@ development practices, refer to the **[Development Guide](https://github.com/rio
    ```
 5. Review the generated PDF output for formatting and citation correctness
 6. If editing bibliography entries, update the `references.bib` file and repeat step 4
-7. Commit following the [commit conventions](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow)
+7. Commit following the [commit conventions](https://github.com/rios0rios0/guide/wiki/Git-Flow)
 8. Open a pull request against `main`
