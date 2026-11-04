@@ -22,6 +22,13 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-11-04
+
+### Changed
+
+- moved the agent instructions from `CLAUDE.md` to `AGENTS.md`, keeping a `CLAUDE.md` that imports it, and pointed the `code-review` skill at `AGENTS.md`
+- refreshed `AGENTS.md`, `.github/copilot-instructions.md`, `.github/skills/code-review/SKILL.md`, `README.md`, and `CONTRIBUTING.md` to state the ABNT NBR 15287:2011 norm of the `project/` variant, the `alf` citation style every paper uses, the actual indentation and branch/commit conventions, the current repository tree, the abnTeX2 project links, and the flat Git Flow wiki link
+
 ## [1.4.1] - 2026-09-08
 
 ### Changed
